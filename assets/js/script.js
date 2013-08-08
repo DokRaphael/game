@@ -13,7 +13,7 @@ var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 				vPerso = 20;					// vitesse de déplacement
 				dPerso = 0;						// image affichée
 				frames = 0;						// compteur de frames
-				sequence = 3;					// rythme de images
+				sequence = 4;					// rythme de images
 				breathRythm = 35;				// espacement des respirations (en frames)
 				stepAnim = 0;
 				position = [0,0];				// position x,y du personnage
@@ -35,7 +35,7 @@ var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 					createCloud("init");
 				}
 				
-				window.setInterval(loop, 100);
+				window.setInterval(loop, 40);
 				window.onkeydown = function() { moveChar(event) };
 				window.onkeyup = function() { stopChar(event) };
 				window.ondevicemotion = function(event) 
