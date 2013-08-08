@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket)
 		{
 			socket.emit("initialize");
 		}	
-	}
+	});                                                                                                                                                                                                                                                                                                                                                                                                               ;
 
 
 	socket.on("turn", function(data)
