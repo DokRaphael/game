@@ -52,12 +52,15 @@ io.sockets.on('connection', function (socket)
       // if client is a browser game
     	if(device.type == "controller")
     	{
+    		console.log("controllerServ");
     	    socket.emit("connected");
     	    socket.broadcast.emit('connected');
 
 		}
     	if(device.type == "game")
 		{
+		    		console.log("gameServ");
+
 			socket.emit("initialize");
 			socket.broadcast.emit('initialize');
 
