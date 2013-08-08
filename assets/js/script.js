@@ -45,14 +45,14 @@ var rightTurnThreshold = 40;
 				var socket = io.connect(url);
 				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 				{
-				socket.emit("device","controller");
+				socket.emit("device",{"type":"controller"});
         			// When game code is validated, we can begin playing...
         		console.log("controller");
 				}
 				else
 				{
 					console.log("game");
-					socket.emit("device", "game");
+					socket.emit("device", {"type":"game"});
 					
 				}
 				socket.on("initialize",function()
