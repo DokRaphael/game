@@ -50,10 +50,12 @@ var rightTurnThreshold = 40;
         		console.log("controller");
         		socket.on("connected", function(data)
          		{
+         			console.log("connected");
+
 			 		window.addEventListener('deviceorientation', function(event) 
 					{
 					   var a = Math.round(event.alpha); // "direction"
-					   var b =Math.round(event.beta); // left/right 'tilt'
+					   var b = Math.round(event.beta); // left/right 'tilt'
 					   var g = Math.round(event.gamma); // forward/back 'tilt'
 		   
 					   // Regardless of phone direction, 
