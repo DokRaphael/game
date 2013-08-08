@@ -52,14 +52,14 @@ var rightTurnThreshold = 40;
          		{
 			 		window.addEventListener('deviceorientation', function(event) 
 					{
-					   var a = event.alpha; // "direction"
-					   var b = event.beta; // left/right 'tilt'
-					   var g = event.gamma; // forward/back 'tilt'
+					   var a = Math.round(event.alpha); // "direction"
+					   var b =Math.round(event.beta); // left/right 'tilt'
+					   var g = Math.round(event.gamma); // forward/back 'tilt'
 		   
 					   // Regardless of phone direction, 
 					   //  left/right tilt should behave the same
 					   var turn = b;
-					
+						console.log("beta :"+b); 
 					   // Update controller UI		   
 					   // Tell game to turn the vehicle
 					   socket.emit("turn", {'turn':turn, 'g':b});
