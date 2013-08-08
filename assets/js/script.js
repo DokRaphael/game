@@ -233,7 +233,7 @@ var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 						else dPerso = 0;
 					}
 				}				
-				perso.style.background = 'url("img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
+				perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
 			}
 			
 			function loop() {
