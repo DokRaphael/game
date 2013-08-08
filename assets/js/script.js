@@ -52,8 +52,11 @@ var rightTurnThreshold = 40;
       			
 
             // Send 'controller' device type with our entered game code
+
+		   		socket.on("welcome", function()
+		   		{
 				socket.emit("device",{"type":"controller"});
-         	 
+         	 	});
         		// When game code is validated, we can begin playing...
         		console.log("controller");
         		
