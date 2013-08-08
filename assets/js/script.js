@@ -38,7 +38,7 @@ var rightTurnThreshold = 40;
 					createCloud("init");
 				}
 				
-			//	window.setInterval(loop, 40);
+				window.setInterval(loop, 40);
 			//	window.onkeydown = function() { moveChar(event) };
 			//	window.onkeyup = function() { stopChar(event) };
 				

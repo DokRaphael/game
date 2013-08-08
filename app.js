@@ -59,7 +59,7 @@ io.sockets.on('connection', function (socket)
 		}
     	if(device.type == "game")
 		{
-		    		console.log("gameServ");
+		    console.log("gameServ");
 
 			socket.emit("initialize");
 			socket.broadcast.emit('initialize');
