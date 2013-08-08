@@ -67,7 +67,6 @@ io.sockets.on('connection', function (socket)
 		}	
 	});                                                                                                                                                                                                                                                                                                                                                                                                               ;
 
-
 	socket.on("turn", function(data)
    {
    		socket.broadcast.emit('turn', data.turn);

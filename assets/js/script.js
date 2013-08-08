@@ -207,20 +207,10 @@ var rightTurnThreshold = 40;
 				}
 			}
 			function stopChar(event) {
-				if (event.keyCode == 37) {
 					LeftIsPressed = false;
-				}
-				if (event.keyCode == 39) {
 					RightIsPressed = false;
-				}
-				if (event.keyCode == 65) {
-					vPerso *= 2;
-					sequence /= 2;
-				}
-				if (event.keyCode == 90) {
-					vPerso /= 2;
-					sequence *= 2;
-				}
+				
+				
 			}
 			function stopCharMob() 
 			{
