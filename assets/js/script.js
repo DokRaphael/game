@@ -58,20 +58,10 @@ var rightTurnThreshold = 40;
 					   // Regardless of phone direction, 
 					   //  left/right tilt should behave the same
 					   var turn = b;
-					   if( a > 270 || a < 90 )
-					   {
-						  turn = 0 - b;
-					   }
-					   else
-					   {
-						  turn = b;
-					   }
-		   
-					   // Update controller UI
-					   updateController(turn);
-		   
+					
+					   // Update controller UI		   
 					   // Tell game to turn the vehicle
-					   socket.emit("turn", {'turn':turn, 'g':a});
+					   socket.emit("turn", {'turn':turn, 'g':b});
 					}, false);
 			 		/*window.ondevicemotion = function(event) 
 					{
@@ -137,29 +127,19 @@ var rightTurnThreshold = 40;
 				{
 					socket.emit("device", "game");
 					socket.on('turn', function(turn)
-				  {
-					 if(turn < leftBreakThreshold)
+				  	{
+					 if(turn < -15)
 					 {
-						if(turn > leftTurnThreshold)
-						{
-						   moveCharLeft();
-						}
-						else
-						{
-						   moveCharLeft();
-						}
-			
+						moveCharLeft();
 					 }
-					 else if (turn > rightBreakThreshold)
+					 else if (turn > 15)
 					 {
-						if(turn < rightTurnThreshold)
-						{
-						   moveCharRight();
-						}
-						else
-						{
-						   moveCharRight();
-						}
+						moveCharRight();
+					 }
+					 else
+					 {				
+					 	RightIsPressed = false;
+						LeftIsPressed = false;
 					 }
 					 
 				  });
