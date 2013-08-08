@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Document sans nom</title>
+    	<style>
+			body { background-color: rgb(112, 213, 219); }
+			body, p, h1 { margin: 0; padding: 0; outline-width: 0; border-width: 0; font-family: sans-serif; color: black; }
+			h1 { font-size: 16pt; padding-bottom: 0.2em; }
+			p { font-size: 10pt; }
+        	#sol { position: absolute; bottom: 0px; width: 100%; height: 90px; background: url("img/grass.png") repeat-x; }
+			.porte { position: absolute; bottom: 70px; right: 800px; }
+			#burger { position: absolute; bottom: 70px; left: 0px; width: 380px; height: 340px; }
+			#info { position: absolute; bottom: 175px; width: 150px; height: 100px; background-color: rgba(210,155,105, 0.5); opacity: 0; padding: 20px; }
+			#perso { position: absolute; bottom: 70px; left: 120px; width: 120px; height: 221px; background: url("img/perso.png") 0px 0px no-repeat; }
+        </style>
+    </head>
+    
+    <body>
+    	<div id="sol"></div>
+        <img class="porte" src="img/porte.png" alt="porte" />
+        <img id="burger" src="img/burger.png" alt="burger" />
+        <div id="info">
+        	<h1></h1>
+            <p>blabla bla blablabla bla blabla blablabla blabla blablabla bla blabla bla blablabla bla</p>
+        </div>
+        <div id="perso"></div>
+        
+        <script>
+			var perso, portes, info, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
+			
+			window.onload = function init() {
+				perso = document.getElementById("perso");
+				portes = document.getElementsByClassName("porte");
+				info = document.getElementById("info");
+				vPerso = 12;					// vitesse de déplacement
+				dPerso = 0;						// image affichée
+				frames = 0;						// compteur de frames
+				sequence = 6;					// rythme de images
+				breathRythm = 25;				// espacement des respirations (en frames)
+				position = [0,0];				// position x,y du personnage
+				velocity = [0,0];				// vecteur de déplacement x,y du personnage
+				acceleration = [0,0];			// vecteur d'acceleration x,y du personnage
+				gravity = 3;					// force de gravité (px / frame)
+				jumpHeight = 30;				// hauteur de saut
+				jumpCount = 0;					// compteur de saut sans toucher le sol
+				nbJumps = 2;					// nombre de saut possibles sans toucher le sol
+				jump = false;					// key listener
+				isJumping = false;				// le personnage est en train de sauter
+				ground = perso.offsetTop;		// hauteur du sol = hauteur de départ du personnage;
+				LeftIsPressed = false;			// key listeners
+				RightIsPressed = false;
+				BottomIsPressed = false;
+				
+				window.setInterval(loop, 30);
+				window.onkeydown = function() { moveChar(event) };
+				window.onkeyup = function() { stopChar(event) };
+			}
+			
+			function moveChar(event) {
+				if (event.keyCode == 37) { 
+					LeftIsPressed = true;
+					perso.style.transform = "perspective(700px) rotateY(180deg)";
+					perso.style.webkitTransform = "perspective(700px) rotateY(180deg)";
+				}
+				if (event.keyCode == 38) { 
+					jump = true;
+				}
+				if (event.keyCode == 39) { 
+					RightIsPressed = true;
+					perso.style.transform = "perspective(700px) rotateY(0deg)";
+					perso.style.webkitTransform = "perspective(700px) rotateY(0deg)";
+				}
+				if (event.keyCode == 32) {
+					var index = persoHitPorte();
+					if (index >= 0) openDoor(index);
+				}
+			}
+			function stopChar(event) {
+				if (event.keyCode == 37) {
+					LeftIsPressed = false;
+				}
+				if (event.keyCode == 39) {
+					RightIsPressed = false;
+				}
+				if (event.keyCode == 65) {
+					vPerso *= 2;
+					sequence /= 2;
+				}
+				if (event.keyCode == 90) {
+					vPerso /= 2;
+					sequence *= 2;
+				}
+			}
+			
+			function persoHitPorte() {
+				var index = -1;
+				for (i = 0; i < portes.length; i++) {
+					if (perso.offsetLeft > portes[i].offsetLeft - perso.offsetWidth && perso.offsetLeft < portes[i].offsetLeft + portes[i].offsetWidth) index = i;
+				}
+				return index;
+			}
+			
+			function openDoor(index) {
+				alert("on ouvre la porte n°" + (index + 1));
+			}
+			
+			function loop() {
+				// update
+				position[0] = perso.offsetLeft;
+				position[1] = perso.offsetTop;
+				if (LeftIsPressed) velocity[0] -= vPerso;
+				if (RightIsPressed) velocity[0] += vPerso;
+				
+				if (jump) {			
+					jumpCount++;
+					if (jumpCount <= nbJumps) acceleration[1] = -jumpHeight;
+					isJumping = true;
+					jump = false;
+				}
+				if (isJumping) {
+					if (position[1] + acceleration[1] + gravity < ground) acceleration[1] += gravity;
+					else {
+						acceleration[1] = 0;
+						position[1] = ground;
+						isJumping = false;
+						jumpCount = 0;
+					}
+				}
+				velocity[0] += acceleration[0];
+				velocity[1] += acceleration[1];
+				position[0] += velocity[0];
+				position[1] += velocity[1];
+				velocity = [0,0];
+				
+				perso.style.left = position[0] + "px";
+				perso.style.top = position[1] + "px";
+				
+				if (velocity[0] != 0) {
+					var pIndex = persoHitPorte();
+					if (pIndex >= 0) {
+						info.style.left = portes[pIndex].offsetLeft - info.offsetWidth - 20 + "px";
+						info.style.opacity = 1;
+						info.getElementsByTagName("h1")[0].innerHTML = "Porte n°" + (pIndex + 1);
+					}
+					else info.style.opacity = 0;
+				}
+				
+				
+				
+				// animation
+				if (LeftIsPressed || RightIsPressed) {
+					if (frames % sequence == 0) {
+						dPerso = (dPerso == 2) ? 3 : 2;
+						stepAnim = frames;
+					}
+				}
+				else if (isJumping) {
+					dPerso = 4;
+					stepAnim = frames;
+				}
+				else {
+					if (dPerso == 1) {
+						if (frames - stepAnim == sequence) {
+							dPerso = 0;
+							stepAnim = frames;
+						}
+					}
+					else {
+						if (frames - stepAnim == breathRythm) {
+							dPerso = 1;
+							stepAnim = frames
+						}
+						else dPerso = 0;
+					}
+				}				
+				perso.style.background = 'url("img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
+				frames++;
+			}
+        </script>
+    </body>
+</html>
