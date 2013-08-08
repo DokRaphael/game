@@ -132,7 +132,8 @@ var rightTurnThreshold = 40;
 					socket.emit("device", {"type":"game"});
 					socket.on("initialize",function()
 					{
-					
+					        		console.log("initialize");
+
 						socket.on('turn', function(turn)
 						{
 							console.log("turn");
