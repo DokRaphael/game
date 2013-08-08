@@ -45,6 +45,9 @@ var rightTurnThreshold = 40;
 				var socket = io.connect(url);
 				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 				{
+				$("#mobileBegin").show();
+				$("#mobileBegin").bind("touchstart",function(event)
+      			{
 				socket.emit("device",{"type":"controller"});
         			// When game code is validated, we can begin playing...
         		console.log("controller");
@@ -122,7 +125,7 @@ var rightTurnThreshold = 40;
 						}, false);
 			
 						// Steer the vehicle based on the phone orientation
-						
+						});
          			});
          			
 				}
@@ -130,6 +133,8 @@ var rightTurnThreshold = 40;
 				{
 					console.log("game");
 					socket.emit("device", {"type":"game"});
+									$("#mobileBegin").hide();
+
 					socket.on("initialize",function()
 					{
 					        		console.log("initialize");
