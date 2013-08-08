@@ -48,6 +48,7 @@ var rightTurnThreshold = 40;
 				$("#mobileBegin").show();
 				$("#mobileBegin").bind("touchstart",function(event)
       			{
+      			$("#mobileBegin").hide();
 				socket.emit("device",{"type":"controller"});
         			// When game code is validated, we can begin playing...
         		console.log("controller");
