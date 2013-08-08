@@ -4,7 +4,7 @@ var leftBreakThreshold = -7;
 var leftTurnThreshold = -40;
 var rightBreakThreshold = 7;
 var rightTurnThreshold = 40;			
-			var init = function()
+			var initPhoneController = function()
 			{
 
 				perso = document.getElementById("perso");
