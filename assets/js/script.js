@@ -50,7 +50,7 @@ var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 						arBeta = Math.round(rotation.beta);
 						arGamma = Math.round(rotation.gamma);
 					}
-					if(ay>3)
+					if(Math.abs(arBeta)>160)
 					{
 						moveCharJump(event);
 					}
