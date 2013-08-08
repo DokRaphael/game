@@ -151,9 +151,9 @@ var rightTurnThreshold = 40;
 						// Steer the vehicle based on the phone orientation
 						
          			});
-			};
-			
-			function moveCharJump(event) 
+         			
+         			
+         			function moveCharJump(event) 
 			{
 					jump = true;
 			}	
@@ -319,4 +319,7 @@ var rightTurnThreshold = 40;
 				
 				frames++;
 			}
+			};
+			
+			
 			
