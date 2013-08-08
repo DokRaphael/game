@@ -133,6 +133,7 @@ var rightTurnThreshold = 40;
 					
 						socket.on('turn', function(turn)
 						{
+							console.log("turn");
 							if(turn < -15)
 							{
 								moveCharLeft();
