@@ -39,8 +39,8 @@ var rightTurnThreshold = 40;
 				}
 				
 				window.setInterval(loop, 40);
-				window.onkeydown = function() { moveChar(event) };
-				window.onkeyup = function() { stopChar(event) };
+			//	window.onkeydown = function() { moveChar(event) };
+			//	window.onkeyup = function() { stopChar(event) };
 				
 				var socket = io.connect(url);
 				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
@@ -131,26 +131,25 @@ var rightTurnThreshold = 40;
 					socket.on("initialize",function()
 					{
 					
-					socket.on('turn', function(turn)
-				  	{
-					 	if(turn < -15)
-					 	{
-							moveCharLeft();
-					 	}
-					 	else if (turn > 15)
-					 	{
-							moveCharRight();
-					 	}
-					 	else
-					 	{				
-					 		RightIsPressed = false;
-							LeftIsPressed = false;
-					 	}
+						socket.on('turn', function(turn)
+						{
+							if(turn < -15)
+							{
+								moveCharLeft();
+							}
+							else if (turn > 15)
+							{
+								moveCharRight();
+							}
+							else
+							{				
+								stopCharMob();
+							}
 					 
-				  	});
+						});
 				  	});
 				}
-			}
+			};
 			
 			function moveCharJump(event) 
 			{
@@ -203,7 +202,7 @@ var rightTurnThreshold = 40;
 					sequence *= 2;
 				}
 			}
-			function stopCharMob(event) 
+			function stopCharMob() 
 			{
 					LeftIsPressed = false;
 					RightIsPressed = false;	
@@ -310,7 +309,8 @@ var rightTurnThreshold = 40;
 				//perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
 			}
 			
-			function loop() {
+			function loop() 
+			{
 				updatePerso();
 				drawPerso();
 				
