@@ -62,7 +62,6 @@ var rightTurnThreshold = 40;
 					   //  left/right tilt should behave the same
 					   var turn = b;
 						console.log("beta :"+b); 
-					   // Update controller UI		   
 					   // Tell game to turn the vehicle
 					   socket.emit("turn", {'turn':turn, 'g':b});
 					}, false);
