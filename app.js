@@ -47,7 +47,18 @@ io.set('log level', 1);
 io.sockets.on('connection', function (socket) 
 {
 	socket.emit("welcome", {});
-
+	socket.on("device", function(device)
+   {
+      // if client is a browser game
+    	if(device.type == "controller")
+    	{
+    	    socket.emit("connected", {});
+		}
+    	if(device.type == "game")
+		{
+			socket.emit("initialize", gameCode);
+		}	
+	}
 	socket.on('username', function(username)
 	{ 
 		// store the username in the socket session for this client
@@ -56,20 +67,8 @@ io.sockets.on('connection', function (socket)
 		usernames[username] = username;
 	});
 
-	
-	socket.on('adduser',function(roomCode,username)
-	{
-		roomsusers[roomCode] += ','+username;
-		socket.emit('useradded',roomsusers[roomCode]);
-	});
-	
-	socket.on('join', function(joincode,username)
-	{
-		
-		socket.join(joincode);
-		socket.emit('updatechat', username, 'you have connected to ' + joincode);
-		socket.broadcast.to(joincode).emit('updatechat', username, username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, joincode);
-		socket.emit("roomCodeIs", joincode);
-	});	
+	socket.on("turn", function(data)
+   {
+   		socket.emit("turn", data.turn);
+   });	
 });
