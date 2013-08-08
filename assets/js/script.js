@@ -43,108 +43,7 @@ var rightTurnThreshold = 40;
 				window.onkeyup = function() { stopChar(event) };
 				
 				var socket = io.connect(url);
-				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
-				{
-				socket.emit("device","controller");
-        			// When game code is validated, we can begin playing...
-        		console.log("controller");
-
-			 		window.addEventListener('deviceorientation', function(event) 
-					{
-					   var a = event.alpha; // "direction"
-					   var b = event.beta; // left/right 'tilt'
-					   var g = event.gamma; // forward/back 'tilt'
-		   
-					   // Regardless of phone direction, 
-					   //  left/right tilt should behave the same
-					   var turn = b;
-					
-					   // Update controller UI		   
-					   // Tell game to turn the vehicle
-					   socket.emit("turn", {'turn':turn, 'g':b});
-					}, false);
-			 		/*window.ondevicemotion = function(event) 
-					{
-						ax = event.accelerationIncludingGravity.x
-						ay = event.accelerationIncludingGravity.y
-						az = event.accelerationIncludingGravity.z
-						rotation = event.rotationRate;
-						if (rotation != null) 
-						{
-							arAlpha = Math.round(rotation.alpha);
-							arBeta = Math.round(rotation.beta);
-							arGamma = Math.round(rotation.gamma);
-						}
-						if(Math.abs(arBeta)>160)
-						{
-							moveCharJump(event);
-						}
-					}
-					window.ondeviceorientation = function(event) 
-					{
-						alpha = Math.round(event.alpha);
-						beta = Math.round(event.beta);
-						gamma = Math.round(event.gamma);
-					
-						if(beta > 15)
-						{
-							moveCharRight(event);
-						}
-						else if(beta<-15)
-						{
-							moveCharLeft(event);
-						}
-						else
-						{
-							stopCharMob(event);
-						}
-					
-					}*/
-						// Hide game code input, and show the vehicle wheel UI						
-						// If user touches the screen, accelerate
-						document.addEventListener("touchstart", function(event){
-						   socket.emit("accelerate", {'accelerate':true});
-						   $('#forward').addClass('active');
-
-						}, false);
-			
-						// Stop accelerating if user stops touching screen
-						document.addEventListener("touchend", function(event){
-						   socket.emit("accelerate", {'accelerate':false});
-						   $('#forward').removeClass('active');
-						}, false);
-			
-						// Prevent touchmove event from cancelling the 'touchend' event above
-						document.addEventListener("touchmove", function(event){
-						   event.preventDefault();
-						}, false);
-			
-						// Steer the vehicle based on the phone orientation
-						
-         	
-				}
-				else
-				{
-					console.log("game");
-					socket.emit("device", "game");
-					socket.on('turn', function(turn)
-				  	{
-					 if(turn < -15)
-					 {
-						moveCharLeft();
-					 }
-					 else if (turn > 15)
-					 {
-						moveCharRight();
-					 }
-					 else
-					 {				
-					 	RightIsPressed = false;
-						LeftIsPressed = false;
-					 }
-					 
-				  });
-				}
+				
 			}
 			
 			function moveCharJump(event) 
@@ -313,3 +212,105 @@ var rightTurnThreshold = 40;
 				
 				frames++;
 			}
+			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
+				{
+				socket.emit("device","controller");
+        			// When game code is validated, we can begin playing...
+        		console.log("controller");
+
+			 		window.addEventListener('deviceorientation', function(event) 
+					{
+					   var a = event.alpha; // "direction"
+					   var b = event.beta; // left/right 'tilt'
+					   var g = event.gamma; // forward/back 'tilt'
+		   
+					   // Regardless of phone direction, 
+					   //  left/right tilt should behave the same
+					   var turn = b;
+					
+					   // Update controller UI		   
+					   // Tell game to turn the vehicle
+					   socket.emit("turn", {'turn':turn, 'g':b});
+					}, false);
+			 		/*window.ondevicemotion = function(event) 
+					{
+						ax = event.accelerationIncludingGravity.x
+						ay = event.accelerationIncludingGravity.y
+						az = event.accelerationIncludingGravity.z
+						rotation = event.rotationRate;
+						if (rotation != null) 
+						{
+							arAlpha = Math.round(rotation.alpha);
+							arBeta = Math.round(rotation.beta);
+							arGamma = Math.round(rotation.gamma);
+						}
+						if(Math.abs(arBeta)>160)
+						{
+							moveCharJump(event);
+						}
+					}
+					window.ondeviceorientation = function(event) 
+					{
+						alpha = Math.round(event.alpha);
+						beta = Math.round(event.beta);
+						gamma = Math.round(event.gamma);
+					
+						if(beta > 15)
+						{
+							moveCharRight(event);
+						}
+						else if(beta<-15)
+						{
+							moveCharLeft(event);
+						}
+						else
+						{
+							stopCharMob(event);
+						}
+					
+					}*/
+						// Hide game code input, and show the vehicle wheel UI						
+						// If user touches the screen, accelerate
+						document.addEventListener("touchstart", function(event){
+						   socket.emit("accelerate", {'accelerate':true});
+						   $('#forward').addClass('active');
+
+						}, false);
+			
+						// Stop accelerating if user stops touching screen
+						document.addEventListener("touchend", function(event){
+						   socket.emit("accelerate", {'accelerate':false});
+						   $('#forward').removeClass('active');
+						}, false);
+			
+						// Prevent touchmove event from cancelling the 'touchend' event above
+						document.addEventListener("touchmove", function(event){
+						   event.preventDefault();
+						}, false);
+			
+						// Steer the vehicle based on the phone orientation
+						
+         	
+				}
+				else
+				{
+					console.log("game");
+					socket.emit("device", "game");
+					socket.on('turn', function(turn)
+				  	{
+					 	if(turn < -15)
+					 	{
+							moveCharLeft();
+					 	}
+					 	else if (turn > 15)
+					 	{
+							moveCharRight();
+					 	}
+					 	else
+					 	{				
+					 		RightIsPressed = false;
+							LeftIsPressed = false;
+					 	}
+					 
+				  	});
+				}
