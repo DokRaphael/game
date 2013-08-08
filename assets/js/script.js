@@ -232,7 +232,6 @@ var rightTurnThreshold = 40;
 				if (clouds.children.length < nbClouds) {
 					var nb = nbClouds - clouds.children.length;
 					for (i = 0; i < nb; i++) {
-						console.log("nuage" + i);
 						createCloud("game");
 					}
 				}
