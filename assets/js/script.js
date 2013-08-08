@@ -49,10 +49,15 @@ var rightTurnThreshold = 40;
 				$("#mobileBegin").bind("touchstart",function(event)
       			{
       			$("#mobileBegin").hide();
-				socket.emit("device",{"type":"controller"});
-        			// When game code is validated, we can begin playing...
+      			
+      			 socket.on('welcome', function(data)
+         		{
+            // Send 'controller' device type with our entered game code
+					socket.emit("device",{"type":"controller"});
+         		});  
+        		// When game code is validated, we can begin playing...
         		console.log("controller");
-        		socket.on("connected", function()
+        		socket.on("connected", function(data)
          		{
          			console.log("connected");
 
@@ -133,14 +138,19 @@ var rightTurnThreshold = 40;
 				else
 				{
 					console.log("game");
-					socket.emit("device", {"type":"game"});
-									$("#mobileBegin").hide();
+					socket.on('welcome', function(data)
+      				{
+         				socket.emit("device", {"type":"game"});
+      				});
+					$("#mobileBegin").hide();
 
-					socket.on("initialize",function()
+					socket.on("initialize",function(data)
 					{
 					        		console.log("initialize");
 
-						socket.on('turn', function(turn)
+						
+				  	});
+				  	socket.on('turn', function(turn)
 						{
 							console.log("turn");
 							if(turn < -15)
@@ -157,7 +167,6 @@ var rightTurnThreshold = 40;
 							}
 					 
 						});
-				  	});
 				}
 				
 				
