@@ -50,11 +50,11 @@ io.sockets.on('connection', function (socket)
 	socket.on("device", function(device)
    {
       // if client is a browser game
-    	if(device.type == "controller")
+    	if(device == "controller")
     	{
     	    socket.emit("connected");
 		}
-    	if(device.type == "game")
+    	if(device == "game")
 		{
 			socket.emit("initialize");
 		}	
