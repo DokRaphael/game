@@ -52,20 +52,14 @@ io.sockets.on('connection', function (socket)
       // if client is a browser game
     	if(device.type == "controller")
     	{
-    	    socket.emit("connected", {});
+    	    socket.emit("connected");
 		}
     	if(device.type == "game")
 		{
-			socket.emit("initialize", gameCode);
+			socket.emit("initialize");
 		}	
 	}
-	socket.on('username', function(username)
-	{ 
-		// store the username in the socket session for this client
-		socket.username = username;
-		// add the client's username to the global list
-		usernames[username] = username;
-	});
+
 
 	socket.on("turn", function(data)
    {
