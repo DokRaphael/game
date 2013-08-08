@@ -48,7 +48,8 @@ var rightTurnThreshold = 40;
 				socket.emit("device","controller");
         			// When game code is validated, we can begin playing...
         		console.log("controller");
-
+				socket.on("connected", function(data)
+         		{
 			 		window.addEventListener('deviceorientation', function(event) 
 					{
 					   var a = event.alpha; // "direction"
@@ -121,12 +122,15 @@ var rightTurnThreshold = 40;
 			
 						// Steer the vehicle based on the phone orientation
 						
-         	
+         			});
 				}
 				else
 				{
 					console.log("game");
 					socket.emit("device", "game");
+					socket.on("initialize",function()
+					{
+					
 					socket.on('turn', function(turn)
 				  	{
 					 	if(turn < -15)
@@ -143,6 +147,7 @@ var rightTurnThreshold = 40;
 							LeftIsPressed = false;
 					 	}
 					 
+				  	});
 				  	});
 				}
 			}
