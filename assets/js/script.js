@@ -35,7 +35,7 @@ var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 					createCloud("init");
 				}
 				
-				window.setInterval(loop, 40);
+				window.setInterval(loop, 100);
 				window.onkeydown = function() { moveChar(event) };
 				window.onkeyup = function() { stopChar(event) };
 				window.ondevicemotion = function(event) 
