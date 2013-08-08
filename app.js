@@ -49,6 +49,7 @@ io.sockets.on('connection', function (socket)
 	socket.emit("welcome", {});
 	socket.on("device", function(device)
    	{
+   		console.log("device.type : " +device.type);
       // if client is a browser game
     	if(device.type == "controller")
     	{

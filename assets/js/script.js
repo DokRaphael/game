@@ -50,13 +50,13 @@ var rightTurnThreshold = 40;
       			{
       			$("#mobileBegin").hide();
       			
-      			 socket.on('welcome', function(data)
-         		{
+
             // Send 'controller' device type with our entered game code
-					socket.emit("device",{"type":"controller"});
-         		});  
+				socket.emit("device",{"type":"controller"});
+         	 
         		// When game code is validated, we can begin playing...
         		console.log("controller");
+        		
         		socket.on("connected", function(data)
          		{
          			console.log("connected");
