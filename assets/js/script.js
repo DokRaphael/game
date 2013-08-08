@@ -74,43 +74,7 @@ var rightTurnThreshold = 40;
 					   // Tell game to turn the vehicle
 					   socket.emit("turn", {'turn':turn, 'g':b});
 					}, false);
-			 		/*window.ondevicemotion = function(event) 
-					{
-						ax = event.accelerationIncludingGravity.x
-						ay = event.accelerationIncludingGravity.y
-						az = event.accelerationIncludingGravity.z
-						rotation = event.rotationRate;
-						if (rotation != null) 
-						{
-							arAlpha = Math.round(rotation.alpha);
-							arBeta = Math.round(rotation.beta);
-							arGamma = Math.round(rotation.gamma);
-						}
-						if(Math.abs(arBeta)>160)
-						{
-							moveCharJump(event);
-						}
-					}
-					window.ondeviceorientation = function(event) 
-					{
-						alpha = Math.round(event.alpha);
-						beta = Math.round(event.beta);
-						gamma = Math.round(event.gamma);
-					
-						if(beta > 15)
-						{
-							moveCharRight(event);
-						}
-						else if(beta<-15)
-						{
-							moveCharLeft(event);
-						}
-						else
-						{
-							stopCharMob(event);
-						}
-					
-					}*/
+			 		
 						// Hide game code input, and show the vehicle wheel UI						
 						// If user touches the screen, accelerate
 						document.addEventListener("touchstart", function(event){
@@ -150,6 +114,43 @@ var rightTurnThreshold = 40;
 
 						
 				  	});
+				  	window.ondevicemotion = function(event) 
+					{
+						ax = event.accelerationIncludingGravity.x
+						ay = event.accelerationIncludingGravity.y
+						az = event.accelerationIncludingGravity.z
+						rotation = event.rotationRate;
+						if (rotation != null) 
+						{
+							arAlpha = Math.round(rotation.alpha);
+							arBeta = Math.round(rotation.beta);
+							arGamma = Math.round(rotation.gamma);
+						}
+						if(Math.abs(arBeta)>160)
+						{
+							moveCharJump(event);
+						}
+					}
+					window.ondeviceorientation = function(event) 
+					{
+						alpha = Math.round(event.alpha);
+						beta = Math.round(event.beta);
+						gamma = Math.round(event.gamma);
+						
+						if(beta > 15)
+						{
+							moveCharRight(event);
+						}
+						else if(beta<-15)
+						{
+							moveCharLeft(event);
+						}
+						else
+						{
+							stopCharMob(event);
+						}
+					
+					}
 				  	socket.on('turn', function(turn)
 						{
 							console.log("turn");
