@@ -46,7 +46,6 @@ io.set('log level', 1);
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) 
 {
-	socket.emit("welcome", {});
 	socket.on("device", function(device)
    	{
    		console.log("device.type : " +device.type);

@@ -141,10 +141,8 @@ var rightTurnThreshold = 40;
 				else
 				{
 					console.log("game");
-					socket.on('welcome', function(data)
-      				{
+
          				socket.emit("device", {"type":"game"});
-      				});
 					$("#mobileBegin").hide();
 
 					socket.on("initialize",function(data)
