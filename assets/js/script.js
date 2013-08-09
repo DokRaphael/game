@@ -40,7 +40,6 @@ $(function()
 		createCloud("init");
 	}
 	
-	window.setInterval(loop, 40);
 	
 	
 	var socket = io.connect(url);
@@ -142,6 +141,7 @@ $(function()
 	}
 	else
 	{
+		window.setInterval(loop, 40);
 
 		pc = true;
 		console.log("game");
