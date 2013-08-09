@@ -54,14 +54,14 @@ var init = function()
 		$("#mobileBegin").show();
 		$("#mobileBegin").bind("touchstart",function(event)
 		{
-			socket.emit("mobileconnected");
+			socket.emit('mobileconnected');
 
 			$("#mobileBegin").hide();
 			// Send 'controller' device type with our entered game code
 
 			//socket.on("welcome", function()
 			//{
-			socket.emit("device",{"type":"controller"});
+			socket.emit('device',{"type":"controller"});
 			//});
 			// When game code is validated, we can begin playing...
 			console.log("controller");
@@ -80,7 +80,7 @@ var init = function()
 			   	var turn = b;
 				console.log("beta :"+b); 
 			   // Tell game to turn the vehicle
-			   	socket.emit("turn", b);
+			   	socket.emit('turn', b);
 			}, 	false);
 			
 			window.ondevicemotion = function(event) 
@@ -153,7 +153,7 @@ var init = function()
 		mobile = false;
 		pc = true;
 		console.log("game");
-		socket.emit("device", {"type":"game"});
+		socket.emit('device', {"type":"game"});
 		$("#mobileBegin").hide();
 		window.onkeydown = function() { moveChar(event) };
 		window.onkeyup = function() { stopChar(event) };
@@ -184,7 +184,7 @@ var init = function()
 			}
 		});
 		
-		socket.on("sync",function()
+		socket.on('sync',function()
 		{	
 			console.log("mobile synchronized");
 		});
