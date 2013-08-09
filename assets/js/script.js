@@ -329,7 +329,7 @@ $(function()
 		perso.left = position[0] + "px";
 		perso.top = position[1] + "px";
 		
-		debug.log(perso.left);
+		console.log(perso.left);
 	}
 	function createCloud(time) 
 	{
