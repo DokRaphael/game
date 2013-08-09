@@ -257,6 +257,7 @@ $(function()
 
 	function updatePerso() 
 	{
+		
 		position[0] = perso.offsetLeft;
 		position[1] = perso.offsetTop;
 		if (LeftIsPressed) 
@@ -271,6 +272,7 @@ $(function()
 		}
 		if (RightIsPressed) 
 		{
+			console.log("rigth!!!!");
 			if (position[0] + acceleration[0] + vPerso + perso.offsetWidth < window.innerWidth) velocity[0] += vPerso;
 			else 
 			{
