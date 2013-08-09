@@ -55,7 +55,7 @@ io.sockets.on('connection', function (socket)
     	if(device.type == "controller")
     	{
     		console.log("controllerServ");
-            //socket.emit("connected", {});
+            socket.emit("connected", alert("ok"));
     	    //socket.broadcast.emit('connected', {});
 		}
 		
