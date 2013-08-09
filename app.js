@@ -42,7 +42,7 @@ app.get('/', function (req, res)
 });
 
 // Delete this row if you want to see debug messages
-io.set('log level', 1);
+//io.set('log level', 1);
 
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) 

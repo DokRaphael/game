@@ -93,7 +93,7 @@ var initPhoneController = function()
 				if(Math.abs(arBeta)>160)
 				{
 					//moveCharJump(event);
-				}
+				}	
 			}
 			window.ondeviceorientation = function(event) 
 			{
