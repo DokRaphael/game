@@ -36,10 +36,12 @@ $(function()
 	BottomIsPressed = false;
 	var mobile = false;
 	var pc = false;
+	personnageImage = new Image();
+	personnageImage.src = 	"/img/perso.png"
 	perso.style.bottom = "70px";
-		perso.style.left = "120px";
-		perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
-
+	perso.style.left = "120px";
+	//perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
+	perso.style.background = personnageImage.src '0px 0px no-repeat';
 	for (i = 0; i < nbClouds; i++) 
 	{
 		createCloud("init");
