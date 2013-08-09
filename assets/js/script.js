@@ -273,7 +273,7 @@ $(function()
 		if (RightIsPressed) 
 		{
 			console.log("rigth!!!!");
-			console.log(position[0] + acceleration[0] + vPerso + perso.offsetWidth + " // " window.innerWidth);
+			console.log(position[0] + acceleration[0] + vPerso + perso.offsetWidth + " // "+ window.innerWidth);
 			if (position[0] + acceleration[0] + vPerso + perso.offsetWidth < window.innerWidth) velocity[0] += vPerso;
 			else 
 			{
