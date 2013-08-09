@@ -9,6 +9,7 @@
 	var rightBreakThreshold = 7;
 	var rightTurnThreshold = 40;	
 	perso = document.getElementById("perso");
+	perso = $('#perso');
 	portes = document.getElementsByClassName("porte");
 	info = document.getElementById("info");
 	clouds = document.getElementById("nuages");
