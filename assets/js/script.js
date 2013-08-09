@@ -30,7 +30,6 @@ $(function()
 	nbJumps = 2;					// nombre de saut possibles sans toucher le sol
 	jump = false;					// key listener
 	isJumping = false;				// le personnage est en train de sauter
-	ground = perso.offsetTop;		// hauteur du sol = hauteur de départ du personnage;
 	LeftIsPressed = false;			// key listeners
 	RightIsPressed = false;
 	BottomIsPressed = false;
@@ -40,6 +39,8 @@ $(function()
 	personnageImage.src = 	"/img/perso.png"
 	perso.style.bottom = "70px";
 	perso.style.left = "120px";
+	ground = perso.offsetTop;		// hauteur du sol = hauteur de départ du personnage;
+
 	perso.style.backgroundImage = 'url("/img/perso.png")';
 
 	for (i = 0; i < nbClouds; i++) 
