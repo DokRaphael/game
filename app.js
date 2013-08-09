@@ -27,13 +27,14 @@ app.get('/Game', function (req, res)
 	res.sendfile(__dirname + '/assets/index.html' );    
 	
 });
+
 app.use(express.static(path.join(__dirname, '/assets')));
 
 app.get('/img', function (req, res)
 {
 	res.sendfile(__dirname + '/assets/img' );    
-	
 });
+
 app.get('/', function (req, res)
 {
 	res.setHeader('Content-Type', 'text/plain');
@@ -49,26 +50,26 @@ io.sockets.on('connection', function (socket)
 	socket.on("device", function(device)
    	{
    		console.log("device.type : " +device.type);
-      // if client is a browser game
+      	//if client is a browser game
     	if(device.type == "controller")
     	{
     		console.log("controllerServ");
             //socket.emit("connected", {});
     	    //socket.broadcast.emit('connected', {});
-
 		}
+		
     	if(device.type == "game")
 		{
 		    console.log("gameServ");
-
 			//socket.emit("initialize", {});
 			//socket.broadcast.emit('initialize', {});
-		
 		}	
 	});                                                                                                                                                                                                                                                                                                                                                                                                               ;
 
 	socket.on("turn", function(data)
-   {
+   	{
    		socket.broadcast.emit('turn', data.turn);
-   });	
+   		console.log("turned");
+   	});
+   		
 });
