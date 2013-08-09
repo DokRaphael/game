@@ -1,7 +1,4 @@
-
-
-		
-var init = function()
+$(function()
 {
 	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
 	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
@@ -48,7 +45,6 @@ var init = function()
 	var socket = io.connect(url);
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 	{
-		window.setInterval(mobsock, 40);
 		mobile = true;
 		pc = false;
 		$("#mobileBegin").show();
@@ -148,9 +144,7 @@ var init = function()
 	}
 	else
 	{
-		window.setInterval(mobsock, 40);
 
-		mobile = false;
 		pc = true;
 		console.log("game");
 		socket.emit('device', {"type":"game"});
@@ -159,14 +153,6 @@ var init = function()
 		window.onkeyup = function() { stopChar(event) };
 		console.log("initialize");
 		
-		
-	}
-	function mobsock()
-	{
-		
-	}
-	function pcsock()
-	{
 		socket.on('turn', function(beta)
 		{
 			console.log("turn");
@@ -188,6 +174,12 @@ var init = function()
 		{	
 			console.log("mobile synchronized");
 		});
+		
+	}
+
+	
+		
+		
 	}
 	
 	function moveCharJump(event) 
@@ -370,4 +362,4 @@ var init = function()
 	}
 
 
-};
+});
