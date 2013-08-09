@@ -8,6 +8,9 @@
 			body, p, h1 { margin: 0; padding: 0; outline-width: 0; border-width: 0; font-family: sans-serif; color: black; }
 			h1 { font-size: 16pt; padding-bottom: 0.2em; }
 			p { font-size: 10pt; }
+			#inGame { position:absolute; top:0;left:0;width:100%;height : 100%;}
+			#gamepad { position:absolute; top:0;left:0;width:100%;height : 100%;}
+
         	#sol { position: absolute; bottom: 0px; width: 100%; height: 90px; background: url("/img/grass.png") repeat-x; }
 			#nuages { position: absolute; left: 0px; top: 0px; width: 100%; height: 70%; overflow: hidden; }
 			#nuages img { position: absolute; height: auto; }
@@ -29,15 +32,19 @@
     
     <body> 	
         <!--<img class="porte" src="img/porte.png" alt="porte" />-->
-        <div id="mobileBegin"></div>
-        <div id="nuages"></div>
-        <img id="burger" src="img/burger.png" alt="burger" />
-        <img id="panneau" src="img/panneau.png" alt="panneau" />
-        <img id="house" src="img/house-out.png" alt="house" />
-        <div id="sol"></div>
-        <div id="perso"></div>
-        <div id="texture"></div>
-    </body>
+        <div id="gamepad">	
+        	<div id="mobileBegin"></div>
+        </div>
+		<div id = "inGame">
+			<div id="nuages"></div>
+			<img id="burger" src="img/burger.png" alt="burger" />
+			<img id="panneau" src="img/panneau.png" alt="panneau" />
+			<img id="house" src="img/house-out.png" alt="house" />
+			<div id="sol"></div>
+			<div id="perso"></div>
+			<div id="texture"></div>
+		</div>
+		</body>
 
 
 </html>

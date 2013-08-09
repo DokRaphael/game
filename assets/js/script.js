@@ -57,7 +57,11 @@ $(function()
 	{
 		mobile = true;
 		pc = false;
+				$("#inGame").hide();
+
+		$("#gamepad").show();
 		$("#mobileBegin").show();
+
 		$("#mobileBegin").bind("touchstart",function(event)
 		{
 			socket.emit('mobileconnected');
@@ -153,12 +157,13 @@ $(function()
 		
 	}
 	else
-	{
+	{				
+		
+		$("#inGame").show();
+		$("#gamepad").hide();
 
-		pc = true;
 		console.log("game");
 		socket.emit('device', {"type":"game"});
-		$("#mobileBegin").hide();
 		window.onkeydown = function() { moveChar(event) };
 		window.onkeyup = function() { stopChar(event) };
 		console.log("initialize");
