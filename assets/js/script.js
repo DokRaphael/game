@@ -8,7 +8,7 @@
 	var leftTurnThreshold = -40;
 	var rightBreakThreshold = 7;
 	var rightTurnThreshold = 40;	
-	perso = document.getElementById("perso");
+	//perso = document.getElementById("perso");
 	perso = $('#perso');
 	portes = document.getElementsByClassName("porte");
 	info = document.getElementById("info");
