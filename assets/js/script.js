@@ -73,7 +73,6 @@ $(function()
 			   // Regardless of phone direction, 
 			   //  left/right tilt should behave the same
 			   	var turn = b;
-				console.log("beta :"+b); 
 			   // Tell game to turn the vehicle
 			   	socket.emit('turn', b);
 			}, 	false);

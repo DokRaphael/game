@@ -68,11 +68,11 @@ io.sockets.on('connection', function (socket)
 
 	socket.on('turn', function(data)
    	{
-   		socket.broadcast.emit('turn', data);
+   		socket.emit('turn', data);
    	});
    	socket.on('mobileconnected', function()
    	{	
-   		socket.broadcast.emit("sync");
+   		socket.emit("sync");
    		console.log('mobileconnected');
 
    	});
