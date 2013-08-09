@@ -1,7 +1,8 @@
-	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
 
 $(function()
 {
+	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
+
 	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com';
 	var leftBreakThreshold = -7;
 	var leftTurnThreshold = -40;
@@ -218,7 +219,7 @@ $(function()
 		LeftIsPressed = false;
 		RightIsPressed = false;	
 	}
-	function updatePerso() 
+	/*function updatePerso() 
 	{
 		
 		position[0] = perso.offsetLeft;
@@ -276,6 +277,47 @@ $(function()
 		var v1 = velocity[1];
 		var p0 = position[0];
 		var p1 = position[1];
+		velocity[0] +=  acceleration[0];
+		velocity[1] +=  acceleration[1];
+		position[0] +=  velocity[0];
+		position[1] +=  velocity[1];
+		velocity = [0,0];
+
+		perso.left = position[0] + "px";
+		perso.top = position[1] + "px";
+	}*/
+	function updatePerso() 
+	{
+		
+		position[0] = perso.offsetLeft;
+		position[1] = perso.offsetTop;
+		if (LeftIsPressed) 
+		{
+				velocity[0] -= vPerso;		
+		}
+		if (RightIsPressed) 
+		{
+				velocity[0] = vPerso + velocity[0];
+		}			
+		if (jump) 
+		{			
+			jumpCount++;
+			if (jumpCount <= nbJumps) acceleration[1] = -jumpHeight;
+			isJumping = true;
+			jump = false;
+		}
+		if (isJumping) 
+		{
+			if (position[1] + acceleration[1] + gravity < ground) acceleration[1] += gravity;
+			else 
+			{
+				acceleration[1] = 0;
+				position[1] = ground;
+				isJumping = false;
+				jumpCount = 0;
+			}
+		}
+		
 		velocity[0] +=  acceleration[0];
 		velocity[1] +=  acceleration[1];
 		position[0] +=  velocity[0];
