@@ -165,11 +165,11 @@ $(function()
 		
 		socket.on('turn', function(beta)
 		{
-			if(beta < -12)
+			if(beta < -5)
 			{
 				moveCharLeft();
 			}
-			else if (beta > 12)
+			else if (beta > 5)
 			{
 				moveCharRight();
 			}
