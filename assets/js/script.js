@@ -182,13 +182,13 @@ $(function()
 	function moveCharRight() 
 	{
 		RightIsPressed = true;
-		perso.style.transform = "perspective(700px) rotateY(0deg)";
+		//perso.style.transform = "perspective(700px) rotateY(0deg)";
 		perso.style.webkitTransform = "perspective(700px) rotateY(0deg)";
 	}	
 	function moveCharLeft() 
 	{
 		LeftIsPressed = true;
-		perso.style.transform = "perspective(700px) rotateY(180deg)";
+		//perso.style.transform = "perspective(700px) rotateY(180deg)";
 		perso.style.webkitTransform = "perspective(700px) rotateY(180deg)";
 	}
 	function moveChar(event) 
@@ -196,7 +196,7 @@ $(function()
 		if (event.keyCode == 37) 
 		{ 
 			LeftIsPressed = true;
-			perso.style.transform = "perspective(700px) rotateY(180deg)";
+		//	perso.style.transform = "perspective(700px) rotateY(180deg)";
 			perso.style.webkitTransform = "perspective(700px) rotateY(180deg)";
 		}
 		if (event.keyCode == 38) 
@@ -206,7 +206,7 @@ $(function()
 		if (event.keyCode == 39) 
 		{ 
 			RightIsPressed = true;
-			perso.style.transform = "perspective(700px) rotateY(0deg)";
+			//perso.style.transform = "perspective(700px) rotateY(0deg)";
 			perso.style.webkitTransform = "perspective(700px) rotateY(0deg)";
 		}
 	}
