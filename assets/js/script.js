@@ -38,6 +38,7 @@ $(function()
 	var pc = false;
 	perso.style.bottom = "70px";
 		perso.style.left = "120px";
+		perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
 
 	for (i = 0; i < nbClouds; i++) 
 	{
@@ -403,7 +404,7 @@ $(function()
 				else dPerso = 0;
 			}
 		}				
-		//perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
+		perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
 	}
 
 	function loop() 
