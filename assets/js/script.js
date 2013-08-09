@@ -294,11 +294,12 @@ $(function()
 		position[1] = perso.offsetTop;
 		if (LeftIsPressed) 
 		{
-				velocity[0] -= vPerso;		
+				velocity[0] -= 20;		
 		}
 		if (RightIsPressed) 
 		{
-				velocity[0] = vPerso + velocity[0];
+				velocity[0] += 20;
+				console.log(velocity[0]);
 		}			
 		if (jump) 
 		{			
@@ -323,7 +324,7 @@ $(function()
 		velocity[1] +=  acceleration[1];
 		position[0] +=  velocity[0];
 		position[1] +=  velocity[1];
-		velocity = [0,0];
+		//velocity = [0,0];
 
 		perso.left = position[0] + "px";
 		perso.top = position[1] + "px";
