@@ -79,7 +79,7 @@ $(function()
 			   	socket.emit('turn', b);
 			}, 	false);
 			
-			window.ondevicemotion = function(event) 
+		/*	window.ondevicemotion = function(event) 
 			{
 				ax = event.accelerationIncludingGravity.x
 				ay = event.accelerationIncludingGravity.y
@@ -117,7 +117,7 @@ $(function()
 					socket.emit("stop",beta);
 					//stopCharMob(event);
 				}
-			}
+			}*/
 						
 			// If user touches the screen, accelerate
 			document.addEventListener("touchstart", function(event)
@@ -176,11 +176,6 @@ $(function()
 		});
 		
 	}
-
-	
-		
-		
-	
 	
 	function moveCharJump(event) 
 	{

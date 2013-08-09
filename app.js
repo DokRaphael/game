@@ -48,16 +48,14 @@ app.get('/', function (req, res)
 io.sockets.on('connection', function (socket) 
 {
 	
-	socket.on("device", function(device)
+	socket.on('device', function(device)
    	{
-   	     socket.emit("connected", alert("ok"));
-
-   		console.log("device.type : " +device.type);
+   	 	socket.emit('connected');
+   		console.log('device.type : ' +device.type);
       	//if client is a browser game
     	if(device.type == "controller")
     	{
     		console.log("controllerServ");
-    	    //socket.broadcast.emit('connected', {});
 		}
 		
     	if(device.type == "game")
@@ -68,14 +66,15 @@ io.sockets.on('connection', function (socket)
 		}	
 	});                                                                                                                                                                                                                                                                                                                                                                                                               ;
 
-	socket.on("turn", function(data)
+	socket.on('turn', function(data)
    	{
-   		socket.broadcast.emit('turn', data);
+   		socket.emit('turn', data);
    		console.log("turned");
    	});
-   	socket.on("mobileconnected", function()
+   	socket.on('mobileconnected', function()
    	{	
-   		console.log("mobileconnected");
-   		socket.broadcast.emit("sync");
+   		socket.emit("sync");
+   		console.log('mobileconnected');
+
    	});
 });
