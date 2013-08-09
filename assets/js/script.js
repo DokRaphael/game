@@ -41,7 +41,7 @@
 		createCloud("init");
 	}
 	
-	window.setInterval(loop, 40);
+//	window.setInterval(loop, 40);
 	
 	
 	var socket = io.connect(url);
