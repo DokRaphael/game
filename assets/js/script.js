@@ -153,7 +153,7 @@ $(function()
 		
 		socket.on('turn', function(beta)
 		{
-			console.log("turn");
+			console.log("turn!!!!!");
 			if(beta < -15)
 			{
 				moveCharLeft();
@@ -168,13 +168,13 @@ $(function()
 			}
 		});
 		
+	
+		
+	}
 		socket.on('sync',function()
 		{	
 			console.log("mobile synchronized");
 		});
-		
-	}
-	
 	function moveCharJump(event) 
 	{
 		jump = true;
