@@ -84,7 +84,7 @@ $(function()
 			   // Tell game to turn the vehicle
 			   	socket.emit('turn', b);
 			}, 	false);
-			window.bind("touchstart",function(event)
+			$(window).bind("touchstart",function(event)
 			{
 				socket.emit('jump');
 			});
