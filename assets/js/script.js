@@ -41,8 +41,7 @@ var initPhoneController = function()
 	}
 	
 	window.setInterval(loop, 40);
-	window.onkeydown = function() { moveChar(event) };
-	window.onkeyup = function() { stopChar(event) };
+	
 	
 	var socket = io.connect(url);
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
@@ -146,7 +145,8 @@ var initPhoneController = function()
 		console.log("game");
 		socket.emit("device", {"type":"game"});
 		$("#mobileBegin").hide();
-
+		window.onkeydown = function() { moveChar(event) };
+		window.onkeyup = function() { stopChar(event) };
 		console.log("initialize");
 		socket.on('turn', function(beta)
 		{
