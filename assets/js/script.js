@@ -180,7 +180,7 @@ $(function()
 	
 		
 		
-	}
+	
 	
 	function moveCharJump(event) 
 	{
