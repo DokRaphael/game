@@ -49,6 +49,8 @@ var initPhoneController = function()
 		$("#mobileBegin").show();
 		$("#mobileBegin").bind("touchstart",function(event)
 		{
+			socket.on("mobileconnected");
+
 			$("#mobileBegin").hide();
 			// Send 'controller' device type with our entered game code
 
@@ -58,9 +60,8 @@ var initPhoneController = function()
 			//});
 			// When game code is validated, we can begin playing...
 			console.log("controller");
-	
-			//socket.on("connected", function(data)
-			//{
+			
+			
 			console.log("connected");
 
 			window.addEventListener('deviceorientation', function(event) 
@@ -163,6 +164,11 @@ var initPhoneController = function()
 			{				
 				stopCharMob();
 			}
+		});
+		
+		socket.on("sync",function()
+		{
+			console.log("mobile synchronized");
 		});
 	}
 
