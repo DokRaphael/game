@@ -248,7 +248,6 @@ $(function()
 		
 		position[0] = perso.offsetLeft;
 		position[1] = perso.offsetTop;
-		console.log(position[0],position[1]);
 		if (LeftIsPressed) 
 		{
 			if (position[0] + acceleration[0] - vPerso > 0) 
@@ -432,9 +431,5 @@ $(function()
 
 		frames++;
 	}
-		
-	
-	
-
 
 });
