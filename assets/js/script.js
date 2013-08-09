@@ -223,7 +223,7 @@ $(function()
 		LeftIsPressed = false;
 		RightIsPressed = false;	
 	}
-	/*function updatePerso() 
+	function updatePerso() 
 	{
 		
 		position[0] = perso.offsetLeft;
@@ -287,10 +287,10 @@ $(function()
 		position[1] +=  velocity[1];
 		velocity = [0,0];
 
-		perso.left = position[0] + "px";
-		perso.top = position[1] + "px";
-	}*/
-	function updatePerso() 
+		perso.style.left = position[0] + "px";
+		perso.style.top = position[1] + "px";
+	}
+	/*function updatePerso() 
 	{
 		
 		position[0] = perso.offsetLeft;
@@ -333,7 +333,7 @@ $(function()
 		perso.style.top = position[1] + "px";
 		
 		console.log(perso.style.left);
-	}
+	}*/
 	function createCloud(time) 
 	{
 		var n = document.createElement("img");
