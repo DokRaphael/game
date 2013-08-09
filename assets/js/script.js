@@ -147,11 +147,7 @@ var initPhoneController = function()
 		socket.emit("device", {"type":"game"});
 		$("#mobileBegin").hide();
 
-		socket.on("initialize",function(data)
-		{
-			console.log("initialize");
-		});
-
+		console.log("initialize");
 		socket.on('turn', function(turn)
 		{
 			console.log("turn");
