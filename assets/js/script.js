@@ -154,7 +154,6 @@ $(function()
 		
 		socket.on('turn', function(beta)
 		{
-			console.log("turn!!!!!");
 			if(beta < -15)
 			{
 				moveCharLeft();
