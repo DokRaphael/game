@@ -66,17 +66,17 @@ var initPhoneController = function()
 
 			window.addEventListener('deviceorientation', function(event) 
 			{
-			   var a = Math.round(event.alpha); // "direction"
-			   var b = Math.round(event.beta); // left/right 'tilt'
-			   var g = Math.round(event.gamma); // forward/back 'tilt'
+			   	var a = Math.round(event.alpha); // "direction"
+			   	var b = Math.round(event.beta); // left/right 'tilt'
+			   	var g = Math.round(event.gamma); // forward/back 'tilt'
 
 			   // Regardless of phone direction, 
 			   //  left/right tilt should behave the same
-			   var turn = b;
+			   	var turn = b;
 				console.log("beta :"+b); 
 			   // Tell game to turn the vehicle
-			   socket.emit("turn", {'turn':turn, 'g':b});
-			}, false);
+			   	socket.emit("turn", {'turn':turn, 'g':b});
+			}, 	false);
 			
 			window.ondevicemotion = function(event) 
 			{

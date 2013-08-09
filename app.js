@@ -68,7 +68,7 @@ io.sockets.on('connection', function (socket)
 
 	socket.on("turn", function(data)
    	{
-   		socket.broadcast.emit('turn', data.turn);
+   		socket.emit('turn', data.turn);
    		console.log("turned");
    	});
    		
