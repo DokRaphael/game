@@ -169,13 +169,10 @@ $(function()
 			}
 		});
 		
-	
-		
-	}
-		socket.on('sync',function()
-		{	
-			console.log("mobile synchronized");
-		});
+	socket.on('sync',function()
+	{	
+		console.log("mobile synchronized");
+	});
 	function moveCharJump(event) 
 	{
 		jump = true;
@@ -367,6 +364,9 @@ $(function()
 
 		frames++;
 	}
+		
+	}
+	
 
 
 });
