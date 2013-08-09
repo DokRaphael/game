@@ -50,12 +50,13 @@ io.sockets.on('connection', function (socket)
 	
 	socket.on("device", function(device)
    	{
+   	     socket.emit("connected", alert("ok"));
+
    		console.log("device.type : " +device.type);
       	//if client is a browser game
     	if(device.type == "controller")
     	{
     		console.log("controllerServ");
-            socket.emit("connected", alert("ok"));
     	    //socket.broadcast.emit('connected', {});
 		}
 		
