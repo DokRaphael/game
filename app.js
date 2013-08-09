@@ -47,7 +47,7 @@ io.set('log level', 1);
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) 
 {
-	
+	console.log("one connected");
 	socket.on('device', function(device)
    	{
    	 	socket.emit('connected');
