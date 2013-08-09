@@ -36,8 +36,8 @@ $(function()
 	BottomIsPressed = false;
 	var mobile = false;
 	var pc = false;
-	perso.bottom = "70px";
-		perso.left = "120px";
+	perso.style.bottom = "70px";
+		perso.style.left = "120px";
 
 	for (i = 0; i < nbClouds; i++) 
 	{
@@ -329,10 +329,10 @@ $(function()
 		position[1] +=  velocity[1];
 		//velocity = [0,0];
 
-		perso.left = position[0] + "px";
-		perso.top = position[1] + "px";
+		perso.style.left = position[0] + "px";
+		perso.style.top = position[1] + "px";
 		
-		console.log(perso.left);
+		console.log(perso.style.left);
 	}
 	function createCloud(time) 
 	{
