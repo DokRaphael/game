@@ -52,7 +52,7 @@
 		$("#mobileBegin").show();
 		$("#mobileBegin").bind("touchstart",function(event)
 		{
-			socket.on("mobileconnected");
+			socket.emit("mobileconnected");
 
 			$("#mobileBegin").hide();
 			// Send 'controller' device type with our entered game code
@@ -170,6 +170,7 @@
 				stopCharMob();
 			}
 		});
+		
 		socket.on("sync",function()
 		{	
 			console.log("mobile synchronized");
