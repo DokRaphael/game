@@ -1,8 +1,7 @@
 
 
 		
-var initPhoneController = function()
-{
+
 	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
 	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
 	var leftBreakThreshold = -7;
@@ -170,13 +169,13 @@ var initPhoneController = function()
 				stopCharMob();
 			}
 		});
-		
+		socket.on("sync",function()
+		{	
+			console.log("mobile synchronized");
+		});
 		
 	}
-	socket.on("sync",function()
-	{
-		console.log("mobile synchronized");
-	});
+	
 	function moveCharJump(event) 
 	{
 		jump = true;
@@ -355,6 +354,6 @@ var initPhoneController = function()
 
 		frames++;
 	}
-};
+
 
 
