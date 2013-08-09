@@ -84,7 +84,10 @@ $(function()
 			   // Tell game to turn the vehicle
 			   	socket.emit('turn', b);
 			}, 	false);
-			
+			window.bind("touchstart",function(event)
+			{
+				socket.emit('jump');
+			});
 		/*	window.ondevicemotion = function(event) 
 			{
 				ax = event.accelerationIncludingGravity.x
@@ -174,6 +177,10 @@ $(function()
 				stopCharMob();
 			}
 		});
+		socket.on('jumping', function()
+		{
+			jumpChar();
+		});
 	}
 	socket.on('sync',function()
 	{	
@@ -214,6 +221,10 @@ $(function()
 			perso.style.transform = "perspective(700px) rotateY(0deg)";
 			perso.style.webkitTransform = "perspective(700px) rotateY(0deg)";
 		}
+	}
+	function jumpChar() 
+	{
+		jump = true;
 	}
 	function stopChar(event) 
 	{
@@ -280,10 +291,7 @@ $(function()
 				jumpCount = 0;
 			}
 		}
-		var v0 = velocity[0];
-		var v1 = velocity[1];
-		var p0 = position[0];
-		var p1 = position[1];
+		
 		velocity[0] +=  acceleration[0];
 		velocity[1] +=  acceleration[1];
 		position[0] +=  velocity[0];

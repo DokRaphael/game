@@ -76,4 +76,10 @@ io.sockets.on('connection', function (socket)
    		console.log('mobileconnected');
 
    	});
+   	socket.on('jump', function()
+   	{	
+   		socket.broadcast.emit("jumping");
+   		console.log('mobileconnected');
+
+   	});
 });
