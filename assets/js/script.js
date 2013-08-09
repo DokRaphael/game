@@ -42,12 +42,13 @@ var init = function()
 		createCloud("init");
 	}
 	
-//	window.setInterval(loop, 40);
+	window.setInterval(loop, 40);
 	
 	
 	var socket = io.connect(url);
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 	{
+		window.setInterval(mobsock, 40);
 		mobile = true;
 		pc = false;
 		$("#mobileBegin").show();
@@ -147,6 +148,8 @@ var init = function()
 	}
 	else
 	{
+		window.setInterval(mobsock, 40);
+
 		mobile = false;
 		pc = true;
 		console.log("game");
@@ -155,6 +158,15 @@ var init = function()
 		window.onkeydown = function() { moveChar(event) };
 		window.onkeyup = function() { stopChar(event) };
 		console.log("initialize");
+		
+		
+	}
+	function mobsock()
+	{
+		
+	}
+	function pcsock()
+	{
 		socket.on('turn', function(beta)
 		{
 			console.log("turn");
@@ -176,7 +188,6 @@ var init = function()
 		{	
 			console.log("mobile synchronized");
 		});
-		
 	}
 	
 	function moveCharJump(event) 
