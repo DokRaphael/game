@@ -69,12 +69,12 @@ io.sockets.on('connection', function (socket)
 
 	socket.on("turn", function(data)
    	{
-   		socket.emit('turn', data);
+   		socket.broadcast.emit('turn', data);
    		console.log("turned");
    	});
    	socket.on("mobileconnected", function()
    	{	
    		console.log("mobileconnected");
-   		socket.emit("sync");
+   		socket.broadcast.emit("sync");
    	});
 });
