@@ -55,6 +55,8 @@ $(function()
 
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 	{
+		setTimeout( function(){ window.scrollTo(0, 1); }, 100 );
+
 		mobile = true;
 		pc = false;
 				$("#inGame").hide();
