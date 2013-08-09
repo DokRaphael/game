@@ -50,7 +50,7 @@
 		{
 			socket.emit('mobileconnected');
 
-			document.getElementById("mobileBegin").style.visibility = hidden;
+			document.getElementById("mobileBegin").style.visibility = "hidden";
 			// Send 'controller' device type with our entered game code
 
 			//socket.on("welcome", function()
@@ -144,7 +144,7 @@
 		pc = true;
 		console.log("game");
 		socket.emit('device', {"type":"game"});
-		document.getElementById("mobileBegin").style.visibility = hidden;
+		document.getElementById("mobileBegin").style.visibility = "hidden";
 
 		window.onkeydown = function() { moveChar(event) };
 		window.onkeyup = function() { stopChar(event) };
