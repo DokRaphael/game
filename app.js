@@ -20,7 +20,7 @@ var mimeTypes = {
     "css": "text/css"
     };
        
-server.listen(80); 
+server.listen(8333); 
 
 app.get('/Game', function (req, res)
 {
