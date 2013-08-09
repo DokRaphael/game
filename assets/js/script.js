@@ -44,6 +44,8 @@ $(function()
 	
 	
 	var socket = io.connect(url);
+			window.setInterval(loop, 40);
+
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 	{
 		mobile = true;
@@ -142,7 +144,6 @@ $(function()
 	}
 	else
 	{
-		window.setInterval(loop, 40);
 
 		pc = true;
 		console.log("game");
@@ -167,7 +168,7 @@ $(function()
 				stopCharMob();
 			}
 		});
-		
+	}
 	socket.on('sync',function()
 	{	
 		console.log("mobile synchronized");
@@ -409,7 +410,7 @@ $(function()
 		frames++;
 	}
 		
-	}
+	
 	
 
 
