@@ -62,7 +62,7 @@ $(function()
 			// When game code is validated, we can begin playing...
 			console.log("controller");
 			console.log("connected");
-		}
+		});
 			window.addEventListener('deviceorientation', function(event) 
 			{
 			   	var a = Math.round(event.alpha); // "direction"
