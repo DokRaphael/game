@@ -281,7 +281,7 @@ $(function()
 			console.log(velocity[0] + " // "+vPerso);
 			if (position[0] + acceleration[0] + vPerso + perso.offsetWidth < window.innerWidth)
 			{ 
-				velocity[0] += vPerso;
+				velocity[0] = vPerso + velocity[0];
 			}
 			else 
 			{
