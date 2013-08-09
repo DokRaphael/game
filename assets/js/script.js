@@ -261,6 +261,7 @@ $(function()
 		
 		position[0] = perso.offsetLeft;
 		position[1] = perso.offsetTop;
+		console.log(position[0],position[1]);
 		if (LeftIsPressed) 
 		{
 			if (position[0] + acceleration[0] - vPerso > 0) 
@@ -280,13 +281,11 @@ $(function()
 		//	console.log(velocity[0] + " // "+vPerso);
 			if (position[0] + acceleration[0] + vPerso + perso.offsetWidth < window.innerWidth)
 			{ 
-						console.log("rigth!!!!");
 
 				velocity[0] = vPerso + velocity[0];
 			}
 			else 
 			{
-				console.log("NOOOOOO");
 
 				acceleration[0] = 0;
 				velocity[0] = 0;
