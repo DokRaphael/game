@@ -286,6 +286,8 @@ $(function()
 			}
 			else 
 			{
+				console.log("NOOOOOO");
+
 				acceleration[0] = 0;
 				velocity[0] = 0;
 				position[0] = window.innerWidth - perso.offsetWidth;
