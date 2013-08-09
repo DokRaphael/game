@@ -74,6 +74,7 @@ io.sockets.on('connection', function (socket)
    	});
    	socket.on("mobileconnected", function()
    	{	
+   		console.log("mobileconnected");
    		socket.emit("sync");
    	});
 });
