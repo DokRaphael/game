@@ -148,14 +148,14 @@ var initPhoneController = function()
 		$("#mobileBegin").hide();
 
 		console.log("initialize");
-		socket.on('turn', function(turn)
+		socket.on('turn', function(beta)
 		{
 			console.log("turn");
-			if(turn < -15)
+			if(beta < -15)
 			{
 				moveCharLeft();
 			}
-			else if (turn > 15)
+			else if (beta > 15)
 			{
 				moveCharRight();
 			}
