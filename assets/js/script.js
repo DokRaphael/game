@@ -36,6 +36,9 @@ $(function()
 	BottomIsPressed = false;
 	var mobile = false;
 	var pc = false;
+	perso.bottom = "70px";
+		perso.left = "120px";
+
 	for (i = 0; i < nbClouds; i++) 
 	{
 		createCloud("init");
