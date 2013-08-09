@@ -307,10 +307,14 @@ $(function()
 				jumpCount = 0;
 			}
 		}
-		velocity[0] += acceleration[0];
-		velocity[1] += acceleration[1];
-		position[0] += velocity[0];
-		position[1] += velocity[1];
+		var v0 = velocity[0];
+		var v1 = velocity[1];
+		var p0 = position[0];
+		var p1 = position[1];
+		velocity[0] = v0 + acceleration[0];
+		velocity[1] = v1 + acceleration[1];
+		position[0] = p0 + velocity[0];
+		position[1] = p1 + velocity[1];
 		velocity = [0,0];
 
 		perso.left = position[0] + "px";
