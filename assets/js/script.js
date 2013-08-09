@@ -304,8 +304,8 @@
 		position[1] += velocity[1];
 		velocity = [0,0];
 
-		perso.style.left = position[0] + "px";
-		perso.style.top = position[1] + "px";
+		perso.left = position[0] + "px";
+		perso.top = position[1] + "px";
 	}
 
 	function drawPerso() 
