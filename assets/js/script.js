@@ -75,7 +75,7 @@ var initPhoneController = function()
 			   	var turn = b;
 				console.log("beta :"+b); 
 			   // Tell game to turn the vehicle
-			   	socket.emit("turn", {'turn':turn, 'g':b});
+			   	socket.emit("turn", b);
 			}, 	false);
 			
 			window.ondevicemotion = function(event) 

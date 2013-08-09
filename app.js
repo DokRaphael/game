@@ -47,6 +47,7 @@ app.get('/', function (req, res)
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) 
 {
+	
 	socket.on("device", function(device)
    	{
    		console.log("device.type : " +device.type);
@@ -68,7 +69,7 @@ io.sockets.on('connection', function (socket)
 
 	socket.on("turn", function(data)
    	{
-   		socket.emit('turn', data.g);
+   		socket.emit('turn', data);
    		console.log("turned");
    	});
    		
