@@ -27,7 +27,7 @@
 	nbJumps = 2;					// nombre de saut possibles sans toucher le sol
 	jump = false;					// key listener
 	isJumping = false;				// le personnage est en train de sauter
-	ground = perso.offsetTop;		// hauteur du sol = hauteur de départ du personnage;
+	ground = perso.style.offsetTop;		// hauteur du sol = hauteur de départ du personnage;
 	LeftIsPressed = false;			// key listeners
 	RightIsPressed = false;
 	BottomIsPressed = false;
