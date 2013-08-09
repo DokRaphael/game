@@ -1,7 +1,7 @@
 $(function()
 {
 	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
-	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
+	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com';
 	var leftBreakThreshold = -7;
 	var leftTurnThreshold = -40;
 	var rightBreakThreshold = 7;

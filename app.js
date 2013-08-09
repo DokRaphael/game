@@ -17,9 +17,9 @@ var mimeTypes = {
     "jpg": "image/jpeg",
     "png": "image/png",
     "js": "text/javascript",
-    "css": "text/css"};
-    
-        
+    "css": "text/css"
+    };
+       
 server.listen(process.env.C9_PORT || 8333); 
 
 app.get('/Game', function (req, res)
