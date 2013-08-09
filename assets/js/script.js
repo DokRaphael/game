@@ -1,14 +1,14 @@
-var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
-var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
-var leftBreakThreshold = -7;
-var leftTurnThreshold = -40;
-var rightBreakThreshold = 7;
-var rightTurnThreshold = 40;	
+
 
 		
 var initPhoneController = function()
 {
-
+	var perso, portes, info, clouds, nbClouds, vCloud, vPerso, dPerso, frames, sequence, breathRythm, stepAnim, position, velocity, acceleration, gravity, jumpHeight, jumpCount, nbJumps, jump, isJumping, ground, LeftIsPressed, RightIsPressed, BottomIsPressed;
+	var url = 'http://ec2-54-229-102-239.eu-west-1.compute.amazonaws.com/Game';
+	var leftBreakThreshold = -7;
+	var leftTurnThreshold = -40;
+	var rightBreakThreshold = 7;
+	var rightTurnThreshold = 40;	
 	perso = document.getElementById("perso");
 	portes = document.getElementsByClassName("porte");
 	info = document.getElementById("info");
@@ -34,7 +34,8 @@ var initPhoneController = function()
 	LeftIsPressed = false;			// key listeners
 	RightIsPressed = false;
 	BottomIsPressed = false;
-
+	var mobile = false;
+	var pc = false;
 	for (i = 0; i < nbClouds; i++) 
 	{
 		createCloud("init");
@@ -46,6 +47,8 @@ var initPhoneController = function()
 	var socket = io.connect(url);
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
 	{
+		mobile = true;
+		pc = false;
 		$("#mobileBegin").show();
 		$("#mobileBegin").bind("touchstart",function(event)
 		{
@@ -143,6 +146,8 @@ var initPhoneController = function()
 	}
 	else
 	{
+		mobile = false;
+		pc = true;
 		console.log("game");
 		socket.emit("device", {"type":"game"});
 		$("#mobileBegin").hide();
