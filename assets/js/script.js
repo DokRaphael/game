@@ -40,8 +40,8 @@ $(function()
 	personnageImage.src = 	"/img/perso.png"
 	perso.style.bottom = "70px";
 	perso.style.left = "120px";
-	//perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
-	perso.style.background = personnageImage.src '0px 0px no-repeat';
+	perso.style.backgroundImage = 'url("/img/perso.png")';
+
 	for (i = 0; i < nbClouds; i++) 
 	{
 		createCloud("init");
@@ -406,7 +406,7 @@ $(function()
 				else dPerso = 0;
 			}
 		}				
-		perso.style.background = 'url("/img/perso.png") ' + (-120 * dPerso) + 'px 0px no-repeat';
+		perso.style.backgroundPosition = (-120 * dPerso)+"px "+"0px";  
 	}
 
 	function loop() 
